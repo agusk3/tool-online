@@ -345,7 +345,7 @@ $htmlcode = <<<ENDHTML
 </head>
 
 <body>
-    <form onsubmit="window.location.href='$proxy_prefix' + document.getElementById('site').value; return false;">
+    <form onsubmit="window.location.href='/index.php/' + document.getElementById('site').value; return false;">
         <div class="form-title-row">
             <h1>WEB PROXY</h1>
         </div>
