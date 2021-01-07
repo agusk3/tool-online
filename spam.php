@@ -68,7 +68,6 @@ echo"Done (".$i.")";
 echo"\r                   \r";
 sleep(1);
         }
-    }
 }else{
     echo"Không tìm thấy số điện thoại(phone error)";
 }
