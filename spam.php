@@ -16,11 +16,11 @@ $login = "https://apib2cm.mytvnet.vn/v8/vnptid/send-otp";
 if(isset($_GET[ "phone"])){ 
 echo "Send Messages To Phone: ".$phone."<br/>";
     if($amount=="" ){
-        for($i=0; $i<=100; $i++){ 
+        for($i=1; $i<=100; $i++){ 
           $opts = array('http' =>
     array(
         'method'  => 'POST',
-        'header'  => $header,
+        'header'  => 'Content-type: application/x-www-form-urlencoded',
         'content' => $data
     )
 );
@@ -32,7 +32,7 @@ $result = file_get_contents($login, false, $context);
         }
         
     }else{ 
-        for($i=0; $i<=(int)$amount; $i++){ 
+        for($i=1; $i<=(int)$amount; $i++){ 
             $opts = array('http' =>
     array(
         'method'  => 'POST',
