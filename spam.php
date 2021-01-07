@@ -34,7 +34,6 @@ fetch('https://apib2cm.mytvnet.vn/v8/vnptid/send-otp', init)
 ";
 echo"Done (".$i.")";
 echo"\r                   \r";
-            sleep(1);
         }else{
         for($i=0, $i=(int)$amount, $i++){
             echo"<script>
@@ -66,7 +65,6 @@ fetch('https://apib2cm.mytvnet.vn/v8/vnptid/send-otp', init)
 </script>";
 echo"Done (".$i.")";
 echo"\r                   \r";
-sleep(1);
         }
 }else{
     echo"Không tìm thấy số điện thoại(phone error)";
