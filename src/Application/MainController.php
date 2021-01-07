@@ -18,6 +18,27 @@
  * with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
-$app = include_once('bootstrap.php');
+namespace YoutubeDownloader\Application;
 
-$app->runWithRoute('index');
+/**
+ * The main controller
+ */
+class MainController extends ControllerAbstract
+{
+    /**
+     * Excute the Controller
+     *
+     * @param string                            $route
+     * @param YoutubeDownloader\Application\App $app
+     */
+    public function execute()
+    {
+        $config = $this->get('config');
+        $template = $this->get('template');
+
+        echo $template->render('index.php', [
+            'app_version' => $this->getAppVersion(),
+            'showBrowserExtensions' => ($this->isUseragentChrome($_SERVER['HTTP_USER_AGENT']) and $config->get('showBrowserExtensions')),
+        ]);
+    }
+}

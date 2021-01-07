@@ -18,6 +18,17 @@
  * with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
-$app = include_once('bootstrap.php');
+namespace YoutubeDownloader\Http;
 
-$app->runWithRoute('index');
+/**
+ * Describes a http client-aware instance
+ */
+interface HttpClientAware
+{
+    /**
+     * Sets a http client instance on the object
+     *
+     * @param Client $client
+     */
+    public function setHttpClient(Client $client);
+}

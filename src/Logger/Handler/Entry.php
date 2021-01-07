@@ -18,6 +18,38 @@
  * with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
-$app = include_once('bootstrap.php');
+namespace YoutubeDownloader\Logger\Handler;
 
-$app->runWithRoute('index');
+/**
+ * An entry interface for a handler instance
+ */
+interface Entry
+{
+    /**
+     * Returns the message
+     *
+     * @return string
+     */
+    public function getMessage();
+
+    /**
+     * Returns the context
+     *
+     * @return array
+     */
+    public function getContext();
+
+    /**
+     * Returns the level
+     *
+     * @return string
+     */
+    public function getLevel();
+
+    /**
+     * Returns the created DateTime
+     *
+     * @return DateTime
+     */
+    public function getCreatedAt();
+}

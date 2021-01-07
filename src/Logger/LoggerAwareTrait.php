@@ -18,6 +18,42 @@
  * with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
-$app = include_once('bootstrap.php');
+namespace YoutubeDownloader\Logger;
 
-$app->runWithRoute('index');
+use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
+
+/**
+ * Trait for logger-aware instances
+ */
+trait LoggerAwareTrait
+{
+    /**
+     * @var Psr\Log\LoggerInterface
+     */
+    protected $logger;
+
+    /**
+     * Sets a logger instance on the object
+     *
+     * @param Psr\Log\LoggerInterface $logger
+     */
+    public function setLogger(LoggerInterface $logger)
+    {
+        $this->logger = $logger;
+    }
+
+    /**
+     * Gets a Psr\Log\LoggerInterface instance
+     *
+     * @return Psr\Log\LoggerInterface
+     */
+    public function getLogger()
+    {
+        if ($this->logger === null) {
+            $this->logger = new NullLogger;
+        }
+
+        return $this->logger;
+    }
+}

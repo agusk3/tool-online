@@ -18,6 +18,39 @@
  * with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
-$app = include_once('bootstrap.php');
+namespace YoutubeDownloader\Http;
 
-$app->runWithRoute('index');
+/**
+ * Trait for http client-aware instances
+ */
+trait HttpClientAwareTrait
+{
+    /**
+     * @var YoutubeDownloader\Http\Client
+     */
+    private $http_client;
+
+    /**
+     * Sets a http client instance on the object
+     *
+     * @param Client $client
+     */
+    public function setHttpClient(Client $client)
+    {
+        $this->http_client = $client;
+    }
+
+    /**
+     * Gets a http client instance
+     *
+     * @return Client
+     */
+    public function getHttpClient()
+    {
+        if ($this->http_client === null) {
+            $this->http_client = new CurlClient;
+        }
+
+        return $this->http_client;
+    }
+}
