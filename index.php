@@ -78,7 +78,7 @@ echo'
         }
         
         form input[type=number] {
-            max-width: 100px;
+            width: 100%;
         }
         
         form input[type=checkbox],
