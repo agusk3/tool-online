@@ -17,14 +17,15 @@ if(isset($_GET[ "phone"])){
 echo "Send Messages To Phone: ".$phone."<br/>";
     if($amount=="" ){
         for($i=0; $i<=100; $i++){ 
-          $ch = curl_init();
-          curl_setopt($ch, CURLOPT_URL, $login);
-          curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-          curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-          curl_setopt($ch, CURLOPT_POST, 1);
-          curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-          curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+          $opts = array('http' =>
+    array(
+        'method'  => 'POST',
+        'header'  => $header,
+        'content' => $data
+    )
+);
+$context = stream_context_create($opts);
+$result = file_get_contents($login, false, $context);
             echo "Done (".$i.")";
             echo "\r                   \r"; 
             
@@ -32,14 +33,15 @@ echo "Send Messages To Phone: ".$phone."<br/>";
         
     }else{ 
         for($i=0; $i<=(int)$amount; $i++){ 
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $login);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            $opts = array('http' =>
+    array(
+        'method'  => 'POST',
+        'header'  => 'Content-type: application/x-www-form-urlencoded',
+        'content' => $data
+    )
+);
+$context = stream_context_create($opts);
+$result = file_get_contents($login, false, $context);
         echo "Done (".$i.")"; 
         echo "\r                   \r"; 
             
