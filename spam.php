@@ -1,7 +1,7 @@
 <?php
-$phone = $GET["phone"];
-$amount = $GET["amount"];
-if(isset($GET["phone"])){
+$phone = $_GET["phone"];
+$amount = $_GET["amount"];
+if(isset($_GET["phone"])){
     if($amount == ""){
         for($i=0, $i=100, $i++){
             echo"<script>
