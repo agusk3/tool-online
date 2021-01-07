@@ -37,7 +37,7 @@ echo"\r                   \r";
             sleep(1);
         }
     }else{
-        for($i=0, $i=$amount, $i++){
+        for($i=0, $i=(int)$amount, $i++){
             echo"<script>
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
