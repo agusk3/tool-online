@@ -3,7 +3,7 @@ $phone = $_GET["phone"];
 $amount = $_GET["amount"];
 if(isset($_GET["phone"])){
     if($amount == ""){
-        for($i=0, $i=100, $i++){
+        for($i=0, $i<=100, $i++){
             echo"<script>
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -35,7 +35,7 @@ fetch('https://apib2cm.mytvnet.vn/v8/vnptid/send-otp', init)
 echo"Done (".$i.")";
 echo"\r                   \r";
         }else{
-        for($i=0, $i=(int)$amount, $i++){
+        for($i=0, $i<=(int)$amount, $i++){
             echo"<script>
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
