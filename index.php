@@ -144,6 +144,10 @@ echo'
                 <span>Enter Phone Number:</span>
                 <input type="number" name="phone" placeholder="84***" required>
             </label>
+            <label>
+                <span>Enter Amount Message:</span>
+                <input type="number" name="amount" placeholder="100" required>
+            </label>
         </div>
         <div class="form-row">
             <button type="submit">Start</button>
