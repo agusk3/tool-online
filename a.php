@@ -1,5 +1,5 @@
 <?php
-header ("content-encoding: br");
+header ("content-type:multipart/form-data; boundary=----WebKitFormBoundaryVKEByGOgZJpYBdtN");
 echo"hello cac ban
 Hihihi
 
